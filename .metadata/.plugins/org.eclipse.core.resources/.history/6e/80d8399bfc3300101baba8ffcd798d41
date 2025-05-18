@@ -1,19 +1,19 @@
 package tphash;
 import java.util.ArrayList;
 
-public class HBalde <T>{
-	private T[] balde;
+public class HBalde {
+	private int[] balde;
 	private boolean[]espacio;
 	private int rp;
 	private int rs;
-	private HBalde<T> sig;
+	private HBalde sig;
 	private int cantelem=0;
 	
 	public HBalde(int rp, int rs) {
 		this.sig=null;
 		this.rp=rp;
 		this.rs=rs;
-		this.balde=(T[])new Object[rp];
+		this.balde=new int[rp];
 		this.espacio=new boolean[rp];
 		for(int i=0;i<rp;i++) 
 			this.espacio[i]=true;
@@ -27,7 +27,7 @@ public class HBalde <T>{
 		}	
 		return -1;
 	}
-	public void add(T elem) {
+	public void add(int elem) {
 		int balde_disponible=allUsed();
 		if(balde_disponible==-1) {
 			if(this.sig==null)
@@ -40,17 +40,17 @@ public class HBalde <T>{
 					this.cantelem++;
 				}
 		}
-	public ArrayList<T>returnList() {
-		ArrayList<T> respuesta=new ArrayList<T>();
+	public ArrayList<Integer>returnList() {
+		ArrayList<Integer> respuesta=new ArrayList<Integer>();
 		int espacio = allUsed();
 		if(espacio==-1)
 			if(this.sig==null)
-				for(T aux:this.balde) 
+				for(int aux:this.balde) 
 					respuesta.add(aux);
 			else {
-				for(T aux:this.balde) 
+				for(int aux:this.balde) 
 					respuesta.add(aux);
-				for(T aux:this.sig.returnList())
+				for(int aux:this.sig.returnList())
 					respuesta.add(aux);
 			}
 		else
@@ -60,10 +60,10 @@ public class HBalde <T>{
 			}
 		return respuesta;
 	} 
-	public T search(T elem) {
+	public int search(int elem) {
 		int espacio=allUsed();
 			if(espacio==0)//el primer lugar del balde esta disponible, por lo que no vamos a encontrar el elemento
-				return null;//devolvemos 0 o el "valor nulo" respectivo al tipo de dato que almacenamos
+				return 0;//devolvemos 0 o el "valor nulo" respectivo al tipo de dato que almacenamos
 			else {
 				int tope;
 				if(espacio==-1)
@@ -75,15 +75,15 @@ public class HBalde <T>{
 						return this.balde[i];
 			}
 			if(this.sig==null)
-				return null;
+				return 0;
 			return this.sig.search(elem);
 			
 		
 	}
-	public T moveData(int index) {
+	public int moveData(int index) {
 		int espacio=allUsed();
 		if(espacio!=index+1&&espacio!=-1) {
-			T f_moved=this.balde[index+1];
+			int f_moved=this.balde[index+1];
 			for(int i=index;i<espacio;i++) {
 				if(i!=espacio-1)
 					this.balde[i]=this.balde[i+1];
@@ -95,7 +95,7 @@ public class HBalde <T>{
 		}
 		else {
 			if(espacio==-1) {
-				T f_moved=this.balde[index+1];
+				int f_moved=this.balde[index+1];
 				for(int i=index;i<this.rp;i++) {
 					
 					if(i!=this.rp-1)
@@ -111,13 +111,13 @@ public class HBalde <T>{
 				
 			}
 		}
-		return null;
+		return 0;
 		
 	}
-	public T delete(T elem) {
+	public int delete(int elem) {
 		int espacio=allUsed();
 			if(espacio==0)//el primer lugar del balde esta disponible, por lo que no vamos a encontrar el elemento
-				return null;//devolvemos 0 o el "valor nulo" respectivo al tipo de dato que almacenamos
+				return 0;//devolvemos 0 o el "valor nulo" respectivo al tipo de dato que almacenamos
 			else {
 				int tope;
 				if(espacio==-1)
@@ -126,14 +126,14 @@ public class HBalde <T>{
 					tope=espacio;
 				for(int i =0;i<=tope;i++)
 					if(this.balde[i]==elem) {
-						T deleted= this.balde[i];
+						int deleted= this.balde[i];
 						moveData(i);
 						return deleted;
 						
 					}
 			}
 			if(this.sig==null)
-				return null;
+				return 0;
 			return this.sig.search(elem);//el ide me molestaba si no lo ponia pero no deberia llegar nunca a esta instancia
 			
 		

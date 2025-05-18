@@ -10,7 +10,7 @@ public class HStruct <T>{
 		this.mod=mod;
 		this.rs=rs;
 		this.rp=rp;
-		this.main=(HBalde<T>[]) new HBalde[mod];
+		this.main=(HBalde<T>[]) new HBalde[mod];;
 		for(int i=0;i<mod;i++)
 			main[i]=new HBalde(rp,rs);
 		

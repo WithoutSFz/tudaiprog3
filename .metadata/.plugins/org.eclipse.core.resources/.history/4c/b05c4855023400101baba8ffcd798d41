@@ -1,6 +1,6 @@
 package tphash;
 
-public class HCrecimiento<T> extends HStruct<T> {
+public class HCrecimiento<T> extends HStruct {
 	private double pd;
 	
 	HCrecimiento(double pd, int mod){

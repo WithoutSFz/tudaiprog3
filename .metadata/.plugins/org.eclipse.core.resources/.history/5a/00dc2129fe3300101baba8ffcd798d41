@@ -10,21 +10,21 @@ public class HStruct <T>{
 		this.mod=mod;
 		this.rs=rs;
 		this.rp=rp;
-		this.main=(HBalde<T>[]) new HBalde[mod];
+		this.main=new HBalde[mod];
 		for(int i=0;i<mod;i++)
 			main[i]=new HBalde(rp,rs);
 		
 	}
 	public void add(T elem) {
 		this.cant_datos++;
-		this.main[elem.hashCode()%mod].add(elem);
+		this.main[elem%mod].add(elem);
 		
 	}
 	public T search(T elem) {
-		return this.main[elem.hashCode()%mod].search(elem);
+		return this.main[elem%mod].search(elem);
 	}
 	public T delete(T elem) {
-		return this.main[elem.hashCode()%mod].delete(elem);
+		return this.main[elem%mod].delete(elem);
 	}
 	public int cantDatos() {
 		return this.cant_datos;
