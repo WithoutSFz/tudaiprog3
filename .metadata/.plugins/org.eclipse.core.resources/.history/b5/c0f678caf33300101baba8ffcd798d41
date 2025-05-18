@@ -1,0 +1,17 @@
+package tphash;
+
+public class ejercicio1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		HStruct mihash=new HStruct(1,1,7);
+		int[] datos= {68, 42, 47, 5, 76, 95, 23, 88, 90, 85, 31, 71, 60, 10, 46, 61,
+		                     50, 92, 74, 6, 97, 66, 1, 56, 27, 7, 14, 92};
+		for(int i:datos) {
+			mihash.add(i);
+			mihash.view();
+
+		}
+	}
+
+}
