@@ -41,14 +41,12 @@ public class NodoArbol<T extends Comparable<T>> {
 		return resultado;
 		
 	}
-	public ArrayList<T> igualesComparador(Comparator<T> p,T ejemplo){
+	public ArrayList<T> mismaZonaPostal(Comparator<T> p){
 		ArrayList<T> resultado=new ArrayList<T>();
-		
-		if(p.compare(this.elem, ejemplo)==0) 
+		if(this.elem) {
 			resultado.add(elem);
-		
-		resultado.addAll(this.mayores.igualesComparador(p,ejemplo));
-		resultado.addAll(this.menores.igualesComparador(p,ejemplo));
+			resultado.addAll(this.menores.menoresQue(elem));
+		}
 		return resultado;
 		
 	}

@@ -1,7 +1,6 @@
 package tphash;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 public class NodoArbol<T extends Comparable<T>> {
 	private T elem;
@@ -38,17 +37,6 @@ public class NodoArbol<T extends Comparable<T>> {
 			resultado.add(elem);
 			resultado.addAll(this.menores.menoresQue(elem));
 		}
-		return resultado;
-		
-	}
-	public ArrayList<T> igualesComparador(Comparator<T> p,T ejemplo){
-		ArrayList<T> resultado=new ArrayList<T>();
-		
-		if(p.compare(this.elem, ejemplo)==0) 
-			resultado.add(elem);
-		
-		resultado.addAll(this.mayores.igualesComparador(p,ejemplo));
-		resultado.addAll(this.menores.igualesComparador(p,ejemplo));
 		return resultado;
 		
 	}
