@@ -1,0 +1,26 @@
+package tphash;
+
+public class Arbol <T> {
+	private NodoArbol raiz;
+	private int cant;
+	public Arbol() {
+		this.raiz=null;
+		this.cant=0;
+	}
+	public int getCant() {
+		return cant;
+	}
+	public void setCant(int cant) {
+		this.cant = cant;
+	}
+	
+	public void add(T elem) {
+		if(this.raiz==null)
+			raiz=new NodoArbol<T>(elem);
+		else {
+			if(this.raiz.getElem()).Compare(elem))
+				this.raiz.menores=new NodoArbol<T>(elem);
+		}
+			
+	}
+}

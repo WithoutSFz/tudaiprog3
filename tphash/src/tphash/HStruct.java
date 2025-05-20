@@ -1,30 +1,30 @@
 package tphash;
 
-public class HStruct {
+public class HStruct <T>{
 	private int rp;//ranuras por balde
 	private int rs;//ranuras de sobrecarga
 	protected int mod;//cantidad de baldes
-	protected HBalde[] main;						
+	protected HBalde<T>[] main;						
 	private int cant_datos=0;
 	public HStruct(int rp,int rs,int mod) {
 		this.mod=mod;
 		this.rs=rs;
 		this.rp=rp;
-		this.main=new HBalde[mod];
+		this.main=(HBalde<T>[]) new HBalde[mod];
 		for(int i=0;i<mod;i++)
 			main[i]=new HBalde(rp,rs);
 		
 	}
-	public void add(int elem) {
+	public void add(T elem) {
 		this.cant_datos++;
-		this.main[elem%mod].add(elem);
+		this.main[elem.hashCode()%mod].add(elem);
 		
 	}
-	public int search(int elem) {
-		return this.main[elem%mod].search(elem);
+	public T search(T elem) {
+		return this.main[elem.hashCode()%mod].search(elem);
 	}
-	public int delete(int elem) {
-		return this.main[elem%mod].delete(elem);
+	public T delete(T elem) {
+		return this.main[elem.hashCode()%mod].delete(elem);
 	}
 	public int cantDatos() {
 		return this.cant_datos;

@@ -1,0 +1,21 @@
+package tphash;
+
+public class NodoArbol<T extends Comparable<T>> {
+	private T elem;
+	public NodoArbol<T> menores;
+	public NodoArbol<T> mayores;
+	
+	public NodoArbol(T elem) {
+		super();
+		this.elem = elem;
+		this.menores = null;
+		this.mayores = null;
+	}
+	public T getElem() {
+		return elem;
+	}
+	public void setElem(T elem) {
+		this.elem = elem;
+	}
+	
+}
