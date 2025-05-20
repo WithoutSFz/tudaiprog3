@@ -1,8 +1,0 @@
-package tphash;
-
-import java.util.Comparator;
-
-public class PorCPostal implements Comparator<Cliente> {
-	
-
-}
