@@ -97,6 +97,24 @@ public class Cliente implements Comparable<Cliente> {
 	public void setCarera(String carera) {
 		this.carera = carera;
 	}
+	public String toString() {
+		return"\n=== cliente ===\n"+
+		this.apellido+" "+this.nombre+"\n"+
+		
+		"DNI: "+this.dni+"\n"+
+		"Codigo postal: "+this.c_postal+"\n"+
+		"Ciudad de origen: "+this.c_origen+"\n"+
+		"Carrera: "+this.carera+"\n"+
+		"Saldo: "+this.saldo+"\n"+
+		"Domicilio: "+this.domicilio+"\n"+
+		"Fecha de nacimiento: "+this.nacimiento+"\n\n";
+		
+	}
+	public boolean equals(Object obj) {
+		
+		return this.dni==((Cliente)obj).getDni();
+		
+	}
 	public int hashCode() {
 		return dni;
 		

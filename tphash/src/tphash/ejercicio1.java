@@ -27,6 +27,7 @@ public class ejercicio1 {
 			mihash2.add(i);
 			mihash2.view();
 		}
+		System.out.println(mihash.search(42));
 		
 	}
 

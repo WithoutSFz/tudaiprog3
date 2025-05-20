@@ -71,10 +71,10 @@ public class HBalde <T>{
 				else
 					tope=espacio;
 				for(int i =0;i<=tope;i++)
-					if(this.balde[i]==elem)
+					if(this.balde[i]!=null&&this.balde[i].equals(elem))
 						return this.balde[i];
 			}
-			if(this.sig==null)
+			if(this.sig==null) 
 				return null;
 			return this.sig.search(elem);
 			

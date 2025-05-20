@@ -31,13 +31,28 @@ public class NodoArbol<T extends Comparable<T>> {
 				this.mayores.add(elem);
 				
 		}
+	public void printInOrder() {
+	    if (this.menores != null)
+	        this.menores.printInOrder();
+	    System.out.println(this.elem);
+	    if (this.mayores != null)
+	        this.mayores.printInOrder();
+	}
+
 			
 	public ArrayList<T> menoresQue(T elem){
 		ArrayList<T> resultado=new ArrayList<T>();
 		if(this.elem.compareTo(elem)<0) {
-			resultado.add(elem);
-			resultado.addAll(this.menores.menoresQue(elem));
+			resultado.add(this.elem);	
+			if(this.menores!=null)
+				resultado.addAll(this.menores.menoresQue(elem));
+			if(this.mayores!=null)
+				resultado.addAll(this.mayores.menoresQue(elem));
 		}
+		else
+			if(this.menores!=null)
+				resultado.addAll(this.menores.menoresQue(elem));
+
 		return resultado;
 		
 	}
@@ -46,9 +61,10 @@ public class NodoArbol<T extends Comparable<T>> {
 		
 		if(p.compare(this.elem, ejemplo)==0) 
 			resultado.add(elem);
-		
-		resultado.addAll(this.mayores.igualesComparador(p,ejemplo));
-		resultado.addAll(this.menores.igualesComparador(p,ejemplo));
+		if(this.mayores!=null)
+			resultado.addAll(this.mayores.igualesComparador(p,ejemplo));
+		if(this.menores!=null)	
+			resultado.addAll(this.menores.igualesComparador(p,ejemplo));
 		return resultado;
 		
 	}
