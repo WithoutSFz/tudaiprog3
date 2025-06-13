@@ -22,7 +22,7 @@ public class ejercicio1 {
 		}
 //B	
 		System.out.println("inciso B");
-		HStruct mihash2=new HCrecimiento(0.9,7);
+		HStruct mihash2=new HCrecimiento(0.4,7);
 		for(int i:datos) {
 			mihash2.add(i);
 			mihash2.view();

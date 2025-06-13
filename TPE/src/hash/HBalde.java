@@ -1,5 +1,7 @@
-package tphash;
+package hash;
+
 import java.util.ArrayList;
+
 
 public class HBalde <T>{
 	private T[] balde;
@@ -114,7 +116,7 @@ public class HBalde <T>{
 		return null;
 		
 	}
-	public T delete(T elem) {// deveria ser void
+	public T delete(T elem) {
 		int espacio=allUsed();
 			if(espacio==0)//el primer lugar del balde esta disponible, por lo que no vamos a encontrar el elemento
 				return null;//devolvemos 0 o el "valor nulo" respectivo al tipo de dato que almacenamos
